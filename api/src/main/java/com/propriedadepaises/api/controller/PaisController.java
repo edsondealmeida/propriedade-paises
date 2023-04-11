@@ -32,4 +32,10 @@ public class PaisController {
     public ResponseEntity<Optional<Pais>> findOnePais(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.OK).body(paisRepository.findById(id));
     }
+
+    @DeleteMapping("/paises/{id}")
+    public ResponseEntity deleteById (@PathVariable Long id){
+        ResponseEntity<T> body = ResponseEntity.status(HttpStatus.OK).body(paisRepository.deleteById(id));
+        return body;
+    }
 }
